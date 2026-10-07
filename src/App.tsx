@@ -360,43 +360,18 @@ export default function App() {
                 <HeroScene />
 
                 <div className="max-w-7xl mx-auto relative z-10 w-full">
-                  <div className="max-w-2xl space-y-8 text-left">
-                    <p className="text-[11px] sm:text-xs font-medium uppercase tracking-[0.35em] text-amber-200/70">
-                      NICEIC Approved &middot; Lichfield &amp; Staffordshire
-                    </p>
-
+                  <div className="max-w-2xl text-left">
                     <h2 className="font-display text-white text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.98] font-medium">
                       Light, wired <br />
                       <em className="text-amber-200 font-normal">beautifully.</em>
                     </h2>
 
-                    <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed font-light">
-                      Lighting design, rewires, fuseboards and EV chargers for homes and businesses across Staffordshire. Certified, tidy and on time.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                      <button
-                        onClick={() => navigateToPage('book')}
-                        className="bg-[#f3e6cf] text-black px-8 py-4 rounded-full font-semibold tracking-wide text-sm flex items-center justify-center gap-2.5 transition-all hover:bg-white active:scale-95"
-                      >
-                        Book a Free Survey
-                      </button>
-                      <button
-                        onClick={() => navigateToPage('services')}
-                        className="border border-white/15 text-white hover:border-amber-200/60 px-8 py-4 rounded-full font-medium tracking-wide text-sm flex items-center justify-center gap-2 transition-all active:scale-95"
-                      >
-                        Get an Estimate
-                        <ArrowRight className="w-4 h-4 text-amber-200" />
-                      </button>
-                    </div>
-
-                    <div className="pt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] tracking-[0.2em] uppercase text-zinc-500">
-                      <span>NICEIC Approved</span>
-                      <span className="w-1 h-1 rounded-full bg-zinc-700" />
-                      <span>Part P Registered</span>
-                      <span className="w-1 h-1 rounded-full bg-zinc-700" />
-                      <span>City &amp; Guilds</span>
-                    </div>
+                    <button
+                      onClick={() => navigateToPage('book')}
+                      className="mt-8 bg-[#f3e6cf] text-black px-6 py-3 rounded-full font-semibold tracking-wide text-sm transition-all hover:bg-white active:scale-95"
+                    >
+                      Book a Free Survey
+                    </button>
                   </div>
                 </div>
               </section>
