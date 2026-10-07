@@ -1,6 +1,6 @@
 {
-  "name": "Hyperspeed Akira Canvas",
-  "description": "Premium black and gold themed website for JB Electrics featuring a glowing bulb 3D hero animation, interactive before/after work slider, services cost estimator, and a live-updating Google Calendar booking system.",
+  "name": "Lumina Electrical",
+  "description": "Premium black and gold themed website for Lumina Electrical featuring a glowing bulb 3D hero animation, interactive before/after work slider, services cost estimator, and a live-updating Google Calendar booking system.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

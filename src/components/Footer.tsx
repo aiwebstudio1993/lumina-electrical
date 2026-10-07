@@ -18,8 +18,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500">
               <Shield className="w-4 h-4" />
             </div>
-            <h3 className="text-md font-bold font-display tracking-widest text-white uppercase">
-              JB <span className="text-amber-500">Electrics</span>
+            <h3 className="text-md font-display text-white font-medium">
+              Lumina <span className="text-amber-500">Electrical</span>
             </h3>
           </div>
           <p className="text-xs text-zinc-500 leading-relaxed font-sans">
@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Quick Links */}
         <div>
           <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white mb-4">
-            Navigation Map
+            Explore
           </h4>
           <ul className="space-y-2.5 text-xs text-zinc-500">
             <li>
@@ -93,16 +93,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <ul className="space-y-3.5 text-xs text-zinc-400">
             <li className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-amber-500" />
-              <span className="font-mono">020 8144 9191</span>
+              <span className="font-mono">0121 496 0284</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-amber-500" />
-              <span className="font-mono">hq@jbelectrics.co.uk</span>
+              <span className="font-mono">hello@lumina-electrical-staffs.co.uk</span>
             </li>
             <li className="flex items-start gap-3">
               <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
               <span className="leading-relaxed">
-                Unit 12, Goldsmiths Industrial Court, London SE14 6QB
+                Unit 3, Mercia Court, Tamworth, Staffordshire B79
               </span>
             </li>
           </ul>
@@ -111,7 +111,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
       <div className="max-w-7xl mx-auto border-t border-zinc-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] font-mono text-zinc-600 gap-4">
         <div>
-          &copy; 2026 JB ELECTRICS LTD. ALL RIGHTS RESERVED. REGISTERED IN ENGLAND & WALES NO. 0914402
+          &copy; 2026 Lumina Electrical. All rights reserved.
         </div>
         <div className="flex gap-4">
           <span className="hover:text-amber-400 cursor-pointer">PRIVACY POLICY</span>

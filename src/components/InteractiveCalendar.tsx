@@ -79,8 +79,8 @@ export const InteractiveCalendar: React.FC<InteractiveCalendarProps> = ({
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
             </div>
-            <h4 className="text-sm font-bold text-white font-display tracking-wide uppercase">
-              Calendar ID: jb-electrics-api
+            <h4 className="text-sm text-white font-display tracking-wide font-medium">
+              Survey calendar
             </h4>
           </div>
         </div>
@@ -98,11 +98,11 @@ export const InteractiveCalendar: React.FC<InteractiveCalendarProps> = ({
         {/* MONTH VIEW CALENDAR GRID (Left Columns) */}
         <div className="md:col-span-7 flex flex-col gap-3">
           <div className="flex justify-between items-center px-1">
-            <span className="font-display font-bold text-sm text-white uppercase tracking-wider">
+            <span className="font-display text-sm text-white font-medium">
               {currentMonth}
             </span>
             <span className="text-[10px] text-zinc-500 font-mono">
-              TIMEZONE: Europe/London (GMT+1)
+              UK time
             </span>
           </div>
 
@@ -182,8 +182,8 @@ export const InteractiveCalendar: React.FC<InteractiveCalendarProps> = ({
         {/* TIME SLOTS DETAILED VIEW (Right Columns) */}
         <div className="md:col-span-5 flex flex-col justify-between border-l border-zinc-900 md:pl-6 pt-4 md:pt-0">
           <div>
-            <h5 className="font-display font-bold text-xs text-white uppercase tracking-wider mb-1 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-amber-500" /> Availability Matrix
+            <h5 className="font-display text-xs text-white mb-1 flex items-center gap-1.5 font-medium">
+              <Clock className="w-3.5 h-3.5 text-amber-500" /> Availability
             </h5>
             <span className="text-[10px] text-zinc-500 font-mono block mb-3">
               Selected: {new Date(selectedDate).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}
@@ -234,8 +234,8 @@ export const InteractiveCalendar: React.FC<InteractiveCalendarProps> = ({
 
           <div className="mt-5 p-3.5 bg-zinc-950 border border-zinc-900 rounded-xl">
             <p className="text-[10px] text-zinc-400 leading-normal font-sans">
-              <span className="text-amber-500 font-mono font-bold mr-1">Google Cal Sync Notice:</span>
-              Once submitted, we verify your appointment coordinates and lock down the node live inside Google Calendar API.
+              <span className="text-amber-500 font-bold mr-1">Good to know:</span>
+              Once you submit, we&apos;ll confirm your appointment by email and add it to our diary.
             </p>
           </div>
         </div>

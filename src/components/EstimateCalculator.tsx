@@ -59,7 +59,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({ onSelect
       } else if (scope === 'full') {
         base = 3500;
         multiplier = size * 1.4;
-        label = "Full Commercial Refit & Distribution Matrix";
+        label = "Full Commercial Refit & Distribution";
         duration = "2 - 3 Weeks";
         certs.push("Emergency Lighting Compliance Certification");
       } else if (scope === 'consumer-unit') {
@@ -70,7 +70,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({ onSelect
       } else if (scope === 'ev-charger') {
         base = 1800;
         multiplier = size * 0.95;
-        label = "Multi-Bay Commercial EV Fleet Charging Matrix";
+        label = "Multi-Bay Commercial EV Charging";
         duration = "2 - 4 Days";
       } else {
         base = 2500;
@@ -117,7 +117,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({ onSelect
           <Sparkles className="w-5 h-5 animate-pulse" />
         </div>
         <div>
-          <h3 className="font-display font-bold text-xl text-white">Instant Precision Estimator</h3>
+          <h3 className="font-display text-xl text-white font-medium">Instant Precision Estimator</h3>
           <p className="text-xs text-zinc-500">Calculate budget estimates for professional compliance audits.</p>
         </div>
       </div>
@@ -216,7 +216,7 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({ onSelect
         {/* RESULTS PANEL */}
         <div className="bg-[#0e0e0e] border border-amber-500/10 rounded-2xl p-6 lg:p-8 flex flex-col justify-between relative">
           <div className="absolute top-4 right-4 text-[10px] text-amber-500/40 font-mono tracking-widest border border-amber-500/20 px-2 py-0.5 rounded uppercase">
-            JB_EST_99F
+            LUM-EST
           </div>
 
           <div className="space-y-6">
@@ -235,14 +235,14 @@ export const EstimateCalculator: React.FC<EstimateCalculatorProps> = ({ onSelect
             <div className="space-y-4">
               <div>
                 <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-1">Target Duration</span>
-                <span className="text-sm font-bold text-white font-display flex items-center gap-2">
+                <span className="text-sm text-white font-display flex items-center gap-2 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                   {duration}
                 </span>
               </div>
 
               <div>
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-2">Gold Standard Compliance Included</span>
+                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-2">Full Certification Included</span>
                 <ul className="space-y-2">
                   {certs.map((cert, index) => (
                     <li key={index} className="flex items-start gap-2.5 text-xs text-zinc-400 leading-normal">

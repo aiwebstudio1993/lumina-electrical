@@ -25,7 +25,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 // Custom component imports
-import { GoldSparksCanvas } from './components/GoldSparksCanvas';
+import { HeroScene } from './components/HeroScene';
 import { BeforeAfterSlider } from './components/BeforeAfterSlider';
 import { EstimateCalculator } from './components/EstimateCalculator';
 import { InteractiveCalendar } from './components/InteractiveCalendar';
@@ -35,8 +35,6 @@ import { Footer } from './components/Footer';
 // Types
 import { Service, PortfolioItem, Testimonial, FAQ, Booking } from './types';
 
-// Import the generated image asset path
-const HERO_IMAGE_PATH = '/src/assets/images/glowing_bulb_hand_1784371837381.jpg';
 
 // Static Data definitions
 const SERVICES_DATA: Service[] = [
@@ -129,7 +127,7 @@ const SERVICES_DATA: Service[] = [
 const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 'p1',
-    title: 'Mayfair Townhouse Smart Refit',
+    title: 'Lichfield Townhouse Smart Refit',
     category: 'smart-home',
     description: 'A comprehensive whole-home automated lighting scheme featuring central server-controlled brass switch plates.',
     imageUrl: 'https://images.unsplash.com/photo-1558211583-d26f610c1eb1?auto=format&fit=crop&w=600&q=80'
@@ -143,9 +141,9 @@ const PORTFOLIO_DATA: PortfolioItem[] = [
   },
   {
     id: 'p3',
-    title: 'Tesla Smart Charging Dock Matrix',
+    title: 'Home EV Charging Installation',
     category: 'ev',
-    description: 'Triple-port 22kW heavy armored charger array synced to private solar panel grid nodes.',
+    description: 'Twin 7.4kW smart chargers installed alongside solar panels for a family home in Burton upon Trent.',
     imageUrl: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'
   },
   {
@@ -161,13 +159,13 @@ const FAQS_DATA: FAQ[] = [
   {
     id: 'f1',
     question: 'Are you NICEIC Approved Contractors or just domestic installers?',
-    answer: 'JB Electrics is fully registered as an NICEIC Approved Contractor (the gold-standard in the UK). This allows us to self-certify all forms of residential, commercial, industrial, and public sector operations, and file Part P building notifications directly.',
+    answer: 'Lumina Electrical is fully registered as an NICEIC Approved Contractor (the gold-standard in the UK). This allows us to self-certify all forms of residential, commercial, industrial, and public sector operations, and file Part P building notifications directly.',
     category: 'compliance'
   },
   {
     id: 'f2',
     question: 'How long does a complete home rewire typically take?',
-    answer: 'A standard 3-bedroom residential property generally takes 3 to 5 working days. We utilize dual-team mechanics to complete rewires in occupied homes with minimal disruption, restoring primary lighting and socket nodes by 5 PM every evening.',
+    answer: 'A standard 3-bedroom residential property generally takes 3 to 5 working days. We utilize dual-team mechanics to complete rewires in occupied homes with minimal disruption, restoring lighting and sockets by 5 PM every evening.',
     category: 'technical'
   },
   {
@@ -188,22 +186,22 @@ const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 't1',
     name: 'Sir Charles Sinclair',
-    role: 'Townhouse Owner, Belgravia',
-    content: 'JB Electrics delivered a masterpiece. The bespoke brass sockets, integrated warm LEDs, and absolute cleanliness of the engineering crew was unmatched. A true gold-standard service.',
+    role: 'Townhouse Owner, Lichfield',
+    content: 'Lumina Electrical delivered a masterpiece. The bespoke brass sockets, integrated warm LEDs, and absolute cleanliness of the engineering crew was unmatched. A true gold-standard service.',
     rating: 5
   },
   {
     id: 't2',
     name: 'Rebecca Harrington',
     role: 'Operations Director, Nova Retail',
-    content: 'We had a severe distribution node fault shut down our main floor. JB dispatch arrived in 35 minutes, bypassed the core hazard, and had our lighting online in under two hours. Phenomenal speed.',
+    content: 'A serious distribution board fault shut down our main floor. Our team arrived in 35 minutes, bypassed the core hazard, and had our lighting online in under two hours. Phenomenal speed.',
     rating: 5
   },
   {
     id: 't3',
     name: 'Marcus Vance',
     role: 'Architect, Vance & Partners',
-    content: 'As architects, we demand perfection in wiring layouts and concealed fittings. JB Electrics is our default contractor. Their commercial conduit layouts are like gallery art.',
+    content: 'As architects, we demand perfection in wiring layouts and concealed fittings. Lumina Electrical is our default contractor. Their commercial conduit layouts are like gallery art.',
     rating: 5
   }
 ];
@@ -298,7 +296,7 @@ export default function App() {
       return;
     }
 
-    const newRef = `JB-2026-${Math.floor(Math.random() * 9000 + 1000)}`;
+    const newRef = `LUM-2026-${Math.floor(Math.random() * 9000 + 1000)}`;
     const newBooking: Booking = {
       id: `b-${Date.now()}`,
       date: bookingDate,
@@ -358,79 +356,48 @@ export default function App() {
               className="relative w-full"
             >
               {/* HERO LANDING AREA */}
-              <section className="relative min-h-[95vh] flex items-center justify-center py-20 px-6 overflow-hidden bg-black">
-                {/* Full-bleed background image of the light bulb filling the screen */}
-                <div className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-0">
-                  <img 
-                    src={HERO_IMAGE_PATH} 
-                    alt="JB Electrics glowing bulb background" 
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-[10s] ease-out"
-                  />
-                  {/* High contrast gradient overlays to ensure text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#030303] via-[#030303]/85 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030303]" />
-                </div>
+              <section className="relative min-h-[100svh] flex items-end lg:items-center px-6 pb-20 pt-[52svh] lg:py-24 overflow-hidden bg-black">
+                <HeroScene />
 
-                {/* Custom Interactive 3D Gold Sparks Canvas Background */}
-                <GoldSparksCanvas />
+                <div className="max-w-7xl mx-auto relative z-10 w-full">
+                  <div className="max-w-2xl space-y-8 text-left">
+                    <p className="text-[11px] sm:text-xs font-medium uppercase tracking-[0.35em] text-amber-200/70">
+                      NICEIC Approved &middot; Lichfield &amp; Staffordshire
+                    </p>
 
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
-                  
-                  {/* HERO TEXT CONTENTS */}
-                  <div className="lg:col-span-12 xl:col-span-10 space-y-8 text-left">
-                    <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full text-xs font-mono font-semibold uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.1)]">
-                      <Zap className="w-4 h-4 text-amber-400 animate-pulse" /> Gold Standard NICEIC Electricians
-                    </div>
+                    <h2 className="font-display text-white text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.98] font-medium">
+                      Light, wired <br />
+                      <em className="text-amber-200 font-normal">beautifully.</em>
+                    </h2>
 
-                    <div className="space-y-4">
-                      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white leading-tight uppercase">
-                        STILL REACHING FOR <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 shadow-sm">
-                          BRIGHTER ENERGY
-                        </span>
-                      </h2>
-                      <p className="text-sm sm:text-base text-zinc-400 max-w-2xl leading-relaxed">
-                        At JB Electrics, we build stunning, luxury architectural electrical designs. From sleek full townhouses rewires to industrial armored power distribution, we combine flawless aesthetics with City & Guilds precision.
-                      </p>
-                    </div>
+                    <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed font-light">
+                      Lighting design, rewires, fuseboards and EV chargers for homes and businesses across Staffordshire. Certified, tidy and on time.
+                    </p>
 
-                    {/* Action buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4 pt-2">
                       <button
                         onClick={() => navigateToPage('book')}
-                        className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-black px-8 py-4 rounded-xl font-bold tracking-wider uppercase text-xs flex items-center justify-center gap-2.5 transition-all shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:brightness-110 active:scale-95"
+                        className="bg-[#f3e6cf] text-black px-8 py-4 rounded-full font-semibold tracking-wide text-sm flex items-center justify-center gap-2.5 transition-all hover:bg-white active:scale-95"
                       >
-                        <CalendarCheck2 className="w-4 h-4" /> Book Survey Priority
+                        Book a Free Survey
                       </button>
                       <button
                         onClick={() => navigateToPage('services')}
-                        className="bg-transparent border border-zinc-800 text-white hover:border-amber-500/50 hover:bg-zinc-950 px-8 py-4 rounded-xl font-bold tracking-wider uppercase text-xs flex items-center justify-center gap-2 transition-all active:scale-95"
+                        className="border border-white/15 text-white hover:border-amber-200/60 px-8 py-4 rounded-full font-medium tracking-wide text-sm flex items-center justify-center gap-2 transition-all active:scale-95"
                       >
-                        Calculate Estimate
-                        <ArrowRight className="w-4 h-4 text-amber-400" />
+                        Get an Estimate
+                        <ArrowRight className="w-4 h-4 text-amber-200" />
                       </button>
                     </div>
 
-                    {/* Certifications Row */}
-                    <div className="pt-6 border-t border-zinc-900 flex flex-wrap gap-6 items-center">
-                      <span className="text-[10px] font-mono text-zinc-600 tracking-wider uppercase block">Accredited by</span>
-                      <div className="flex gap-4 items-center opacity-40 hover:opacity-75 transition-opacity">
-                        <div className="flex items-center gap-1.5 text-xs text-white font-bold font-mono">
-                          <Shield className="w-4 h-4 text-amber-500" /> NICEIC APPROVED
-                        </div>
-                        <div className="text-zinc-700">|</div>
-                        <div className="flex items-center gap-1.5 text-xs text-white font-bold font-mono">
-                          <CheckCircle className="w-4 h-4 text-amber-400" /> PART P SAFETY
-                        </div>
-                        <div className="text-zinc-700">|</div>
-                        <div className="flex items-center gap-1.5 text-xs text-white font-bold font-mono">
-                          <Award className="w-4 h-4 text-amber-500" /> CITY & GUILDS
-                        </div>
-                      </div>
+                    <div className="pt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] tracking-[0.2em] uppercase text-zinc-500">
+                      <span>NICEIC Approved</span>
+                      <span className="w-1 h-1 rounded-full bg-zinc-700" />
+                      <span>Part P Registered</span>
+                      <span className="w-1 h-1 rounded-full bg-zinc-700" />
+                      <span>City &amp; Guilds</span>
                     </div>
                   </div>
-
                 </div>
               </section>
 
@@ -455,11 +422,11 @@ export default function App() {
               <section className="py-24 max-w-7xl mx-auto px-6 text-center space-y-16">
                 <div className="space-y-4 max-w-2xl mx-auto">
                   <span className="text-xs font-mono text-amber-500 font-bold uppercase tracking-widest block">Accredited Credentials</span>
-                  <h3 className="text-3xl font-bold font-display text-white uppercase tracking-tight">
-                    Why Discerning Clients Choose JB Electrics
+                  <h3 className="text-3xl font-display text-white font-medium">
+                    Why Discerning Clients Choose Lumina Electrical
                   </h3>
                   <p className="text-sm text-zinc-500">
-                    We deliver clean, micro-aligned cabling and fully certified diagnostics for residential and commercial spaces.
+                    We deliver neat, carefully planned wiring and fully certified testing for residential and commercial spaces.
                   </p>
                 </div>
 
@@ -469,7 +436,7 @@ export default function App() {
                     <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-6 group-hover:bg-amber-500 group-hover:text-black transition-all">
                       <Shield className="w-6 h-6" />
                     </div>
-                    <h4 className="text-lg font-bold font-display text-white uppercase mb-2">Uncompromising Safety First</h4>
+                    <h4 className="text-lg font-display text-white mb-2 font-medium">Uncompromising Safety First</h4>
                     <p className="text-xs text-zinc-500 leading-relaxed font-sans">
                       Every project is fully certified under BS 7671 Part P standards, City & Guilds certifications, and backed by a 6-year NICEIC Platinum Promise warranty.
                     </p>
@@ -479,7 +446,7 @@ export default function App() {
                     <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-6 group-hover:bg-amber-500 group-hover:text-black transition-all">
                       <Lightbulb className="w-6 h-6" />
                     </div>
-                    <h4 className="text-lg font-bold font-display text-white uppercase mb-2">Architectural Illumination</h4>
+                    <h4 className="text-lg font-display text-white mb-2 font-medium">Architectural Illumination</h4>
                     <p className="text-xs text-zinc-500 leading-relaxed font-sans">
                       We specialize in high-end brass finish plates, seamless plaster-in plaster profiles, warm LED mood scenes, and silent centralized smart server cabinet planning.
                     </p>
@@ -489,7 +456,7 @@ export default function App() {
                     <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-6 group-hover:bg-amber-500 group-hover:text-black transition-all">
                       <Zap className="w-6 h-6" />
                     </div>
-                    <h4 className="text-lg font-bold font-display text-white uppercase mb-2">High Performance Load Limits</h4>
+                    <h4 className="text-lg font-display text-white mb-2 font-medium">High Performance Load Limits</h4>
                     <p className="text-xs text-zinc-500 leading-relaxed font-sans">
                       We plan distribution grids, compute peak wattages, integrate surge systems, and commission 7.2kW and 22kW smart EV vehicle chargers with full solar sync capabilities.
                     </p>
@@ -502,8 +469,8 @@ export default function App() {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                   <div className="lg:col-span-4 space-y-6 text-left">
                     <span className="text-xs font-mono text-amber-500 font-bold uppercase tracking-widest block">Engineering Artistry</span>
-                    <h3 className="text-3xl font-bold font-display text-white uppercase leading-tight">
-                      Raw Messy Hazards turned into Certified Art
+                    <h3 className="text-3xl font-display text-white leading-tight font-medium">
+                      From Hazard to Beautifully Certified
                     </h3>
                     <p className="text-sm text-zinc-400 leading-relaxed font-sans">
                       Legacy unlabelled copper wires, loose contacts, and corroded units are a serious threat. Drag our slider bar to inspect the flawless alignment, dual RCD safety switches, and armored metal conduit enclosures we bring to every property.
@@ -525,8 +492,8 @@ export default function App() {
               <section className="py-24 max-w-7xl mx-auto px-6 text-center space-y-16">
                 <div className="space-y-4">
                   <span className="text-xs font-mono text-amber-500 font-bold uppercase tracking-widest block">Client Testimonials</span>
-                  <h3 className="text-3xl font-bold font-display text-white uppercase tracking-tight">
-                    Trusted by London’s Finest
+                  <h3 className="text-3xl font-display text-white font-medium">
+                    Trusted Across Staffordshire
                   </h3>
                 </div>
 
@@ -569,7 +536,7 @@ export default function App() {
               {/* HEADER */}
               <div className="text-center space-y-4 max-w-2xl mx-auto">
                 <span className="text-xs font-mono text-amber-500 font-bold uppercase tracking-widest block">Accredited Capabilities</span>
-                <h2 className="text-4xl font-bold font-display text-white uppercase tracking-tight">
+                <h2 className="text-4xl font-display text-white font-medium">
                   Premium Electrical Engineering Services
                 </h2>
                 <p className="text-sm text-zinc-500">
@@ -601,7 +568,7 @@ export default function App() {
                         </div>
 
                         <div>
-                          <h3 className="text-lg font-bold font-display text-white uppercase mb-2">
+                          <h3 className="text-lg font-display text-white mb-2 font-medium">
                             {s.title}
                           </h3>
                           <p className="text-xs text-zinc-400 leading-relaxed mb-4">
@@ -663,8 +630,8 @@ export default function App() {
               {/* HEADER */}
               <div className="text-center space-y-4 max-w-2xl mx-auto">
                 <span className="text-xs font-mono text-amber-500 font-bold uppercase tracking-widest block">Completed Installations</span>
-                <h2 className="text-4xl font-bold font-display text-white uppercase tracking-tight">
-                  The JB Electrical Portfolio
+                <h2 className="text-4xl font-display text-white font-medium">
+                  The Lumina Portfolio
                 </h2>
                 <p className="text-sm text-zinc-500">
                   Inspect our flawless conduit geometries, custom dimming rack server integration, and commercial board replacements.
@@ -674,7 +641,7 @@ export default function App() {
               {/* SLIDER FEATURE */}
               <div className="bg-[#090909] border border-zinc-900 rounded-2xl p-6 lg:p-8 space-y-6">
                 <div>
-                  <h3 className="text-md font-bold font-display text-white uppercase tracking-wider mb-1">
+                  <h3 className="text-md font-display text-white mb-1 font-medium">
                     Featured Audit: Consumer Fuse Board Replacement
                   </h3>
                   <p className="text-xs text-zinc-500">
@@ -753,7 +720,7 @@ export default function App() {
               {/* HEADER */}
               <div className="text-center space-y-4 max-w-2xl mx-auto">
                 <span className="text-xs font-mono text-amber-500 font-bold uppercase tracking-widest block">Communications Terminal</span>
-                <h2 className="text-4xl font-bold font-display text-white uppercase tracking-tight">
+                <h2 className="text-4xl font-display text-white font-medium">
                   Contact & Technical Compliance FAQs
                 </h2>
                 <p className="text-sm text-zinc-500">
@@ -767,8 +734,8 @@ export default function App() {
                   <div className="bg-[#090909] border border-zinc-900 rounded-2xl p-6 lg:p-8 space-y-6 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1 h-full bg-amber-500" />
                     <div>
-                      <h3 className="text-lg font-bold font-display text-white uppercase mb-1">
-                        Dispatch Message Coordinator
+                      <h3 className="text-lg font-display text-white mb-1 font-medium">
+                        Send Us a Message
                       </h3>
                       <p className="text-xs text-zinc-500">
                         File an engineering query or callout. Responses guaranteed within 2 hours.
@@ -778,7 +745,7 @@ export default function App() {
                     {contactSuccess ? (
                       <div className="p-6 bg-amber-950/20 border border-amber-500/30 rounded-xl space-y-3 text-center">
                         <CheckCircle className="w-10 h-10 text-amber-500 mx-auto animate-bounce" />
-                        <h4 className="font-display font-bold text-white text-md uppercase">Transmission Successful</h4>
+                        <h4 className="font-display text-white text-md font-medium">Transmission Successful</h4>
                         <p className="text-xs text-zinc-400 max-w-md mx-auto leading-normal">
                           Your message has been filed securely in our routing server. A City & Guilds engineer will follow up at the email provided.
                         </p>
@@ -801,7 +768,7 @@ export default function App() {
                         </div>
 
                         <div>
-                          <label className="block text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Email Coordinates</label>
+                          <label className="block text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Email Address</label>
                           <div className="relative">
                             <span className="absolute left-3 top-3 text-zinc-600"><Mail className="w-4 h-4" /></span>
                             <input 
@@ -843,14 +810,14 @@ export default function App() {
                   {/* ACTIVE GEOGRAPHIC NODE MAP (Visual Representation) */}
                   <div className="bg-[#090909] border border-zinc-900 rounded-2xl p-6 space-y-4">
                     <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-amber-500" /> Active Service Nodes
+                      <MapPin className="w-3.5 h-3.5 text-amber-500" /> Areas We Cover
                     </h4>
                     
                     {/* Simulated vector map box */}
                     <div className="relative h-44 bg-[#030303] border border-zinc-950 rounded-xl overflow-hidden flex items-center justify-center">
                       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:1.5rem_1.5rem]" />
                       
-                      {/* Live London Core coverage circle */}
+                      {/* Coverage circle */}
                       <div className="absolute w-32 h-32 rounded-full border border-amber-500/10 bg-amber-500/2 animate-pulse flex items-center justify-center">
                         <div className="w-20 h-20 rounded-full border border-amber-500/20 bg-amber-500/5 flex items-center justify-center">
                           <span className="w-3 h-3 bg-amber-500 rounded-full shadow-[0_0_8px_#f59e0b] animate-ping" />
@@ -859,17 +826,17 @@ export default function App() {
 
                       {/* Map Labels */}
                       <div className="absolute top-4 left-4 text-[9px] font-mono text-zinc-600">
-                        GRID SYSTEM: TOKYO-M1-HQ // BOUNDARY: M25 CIRCLE
+                        STAFFORDSHIRE & WEST MIDLANDS
                       </div>
 
                       <div className="absolute bottom-4 right-4 text-right text-[10px] font-mono text-zinc-400 space-y-0.5 bg-black/60 p-2 rounded border border-zinc-900">
-                        <span className="text-white font-bold block uppercase">LONDON CORE DISPATCH</span>
-                        <span className="text-emerald-500">6 Crews Status: Online</span>
+                        <span className="text-white font-bold block uppercase">Tamworth base</span>
+                        <span className="text-emerald-500">Covering 25 miles</span>
                       </div>
                     </div>
                     
                     <p className="text-[11px] text-zinc-500 leading-normal">
-                      We dispatch fully equipped mobile vans within London, Surrey, and Kent. Emergency fast-response crews reside permanently inside Chelsea, Mayfair, Greenwich, and Croydon.
+                      Fully equipped vans covering Lichfield, Tamworth, Burton upon Trent, Stafford, Cannock and Sutton Coldfield, with emergency call-outs across Staffordshire and the West Midlands.
                     </p>
                   </div>
                 </div>
@@ -877,7 +844,7 @@ export default function App() {
                 {/* FAQ ACCORDION (Right Column) */}
                 <div className="lg:col-span-6 space-y-6">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-bold font-display text-white uppercase flex items-center gap-2">
+                    <h3 className="text-lg font-display text-white flex items-center gap-2 font-medium">
                       <HelpCircle className="w-5 h-5 text-amber-500" /> Compliance & Technical FAQS
                     </h3>
                     <input 
@@ -946,7 +913,7 @@ export default function App() {
               {/* HEADER */}
               <div className="text-center space-y-4 max-w-2xl mx-auto">
                 <span className="text-xs font-mono text-amber-500 font-bold uppercase tracking-widest block">Priority Appointment Terminal</span>
-                <h2 className="text-4xl font-bold font-display text-white uppercase tracking-tight">
+                <h2 className="text-4xl font-display text-white font-medium">
                   Schedule Your Compliance Survey
                 </h2>
                 <p className="text-sm text-zinc-500">
@@ -961,7 +928,7 @@ export default function App() {
                   <div className="bg-[#090909] border border-zinc-900 rounded-2xl p-6 lg:p-8 space-y-6 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1 h-full bg-amber-500" />
                     <div>
-                      <h3 className="text-lg font-bold font-display text-white uppercase mb-1">
+                      <h3 className="text-lg font-display text-white mb-1 font-medium">
                         Priority Booking Ticket
                       </h3>
                       <p className="text-xs text-zinc-500">
@@ -973,7 +940,7 @@ export default function App() {
                       <div className="p-6 bg-amber-950/20 border border-amber-500/30 rounded-xl space-y-4 text-center">
                         <CheckCircle className="w-12 h-12 text-amber-500 mx-auto animate-bounce" />
                         <div>
-                          <h4 className="font-display font-bold text-white text-md uppercase">Booking Slot Locked</h4>
+                          <h4 className="font-display text-white text-md font-medium">Booking Slot Locked</h4>
                           <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest">
                             GOOGLE CALENDAR REF: {bookingSuccessData.ref}
                           </span>
@@ -995,7 +962,7 @@ export default function App() {
                         
                         {/* SELECT SERVICE TYPE */}
                         <div>
-                          <label className="block text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Required Service Node</label>
+                          <label className="block text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Service Required</label>
                           <select
                             value={bookingService}
                             onChange={(e) => setBookingService(e.target.value)}
@@ -1057,7 +1024,7 @@ export default function App() {
                         </div>
 
                         <div>
-                          <label className="block text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Phone Coordinates</label>
+                          <label className="block text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Phone Number</label>
                           <input
                             type="tel"
                             required
@@ -1069,7 +1036,7 @@ export default function App() {
                         </div>
 
                         <div>
-                          <label className="block text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Additional Project Coordinates</label>
+                          <label className="block text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1.5">Project Details</label>
                           <textarea
                             rows={3}
                             value={clientNotes}
@@ -1095,11 +1062,11 @@ export default function App() {
                   <div className="space-y-4">
                     <div className="flex justify-between items-center px-1">
                       <div>
-                        <h3 className="text-md font-bold font-display text-white uppercase">
-                          Live Google Calendar Block
+                        <h3 className="text-md font-display text-white font-medium">
+                          Choose a Survey Slot
                         </h3>
                         <p className="text-xs text-zinc-500">
-                          Inspect busy zones and click on a day/slot to lock in your preferred survey coordinates.
+                          Pick a day and time that suits you for a free home survey.
                         </p>
                       </div>
                     </div>
@@ -1120,7 +1087,7 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* SYSTEM STATUS FOOTER */}
+      {/* FOOTER */}
       <Footer onNavigate={navigateToPage} />
     </div>
   );

@@ -75,7 +75,7 @@ export const BeforeAfterSlider: React.FC = () => {
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-red-950/40 text-red-400 border border-red-900/40 rounded-full text-xs font-mono mb-3 uppercase tracking-wider">
               <AlertTriangle className="w-3.5 h-3.5" /> Hazardous Legacy System
             </div>
-            <h4 className="text-xl font-bold font-display text-zinc-300 mb-2">Unregulated Fire Hazard</h4>
+            <h4 className="text-xl font-display text-zinc-300 mb-2 font-medium">Unregulated Fire Hazard</h4>
             <p className="text-sm text-zinc-400">
               Corroded fuse board, overloaded circuit terminals, unlabelled copper, and tangled wiring. A severe shock risk with no RCD safety breakers.
             </p>
@@ -105,7 +105,7 @@ export const BeforeAfterSlider: React.FC = () => {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-950/40 text-amber-400 border border-amber-500/40 rounded-full text-xs font-mono mb-3 uppercase tracking-wider shadow-[0_0_10px_rgba(245,158,11,0.1)]">
                 <CheckCircle className="w-3.5 h-3.5 text-amber-400 animate-pulse" /> Certified Premium Hub
               </div>
-              <h4 className="text-xl font-bold font-display text-white mb-2">JB Precision Upgrade</h4>
+              <h4 className="text-xl font-display text-white mb-2 font-medium">Lumina Precision Upgrade</h4>
               <p className="text-sm text-zinc-400">
                 Sleek modern metallic distribution board. Integrated surge protection (SPD), RCBO safety switches, perfectly braided labeled copper conduit channels, and active status display.
               </p>
