@@ -356,7 +356,7 @@ export default function App() {
               className="relative w-full"
             >
               {/* HERO LANDING AREA */}
-              <section className="relative min-h-[100svh] flex items-end lg:items-center px-6 pb-20 pt-[52svh] lg:py-24 overflow-hidden bg-black">
+              <section className="relative min-h-[100svh] flex items-end lg:items-center px-6 pb-20 pt-[58svh] lg:py-24 overflow-hidden bg-black">
                 <HeroScene />
 
                 <div className="max-w-7xl mx-auto relative z-10 w-full">

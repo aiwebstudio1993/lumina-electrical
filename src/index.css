@@ -8,85 +8,68 @@
 }
 
 
-/* ---------- Hero scene: dim room, glowing pendant bulb ---------- */
-.lumina-scene {
-  --bx: 50%;
-  --by: 30svh;
+/* ---------- Hero: bulb photo with a gentle flicker ---------- */
+.lum-photo-layer {
+  container-type: size;
+}
+.lum-frame {
+  --ar: 1.7917;          /* photo is 1376 x 768 */
+  --fh: 62cqh;           /* phones: photo fills the top part, text sits below */
+  --px: 0.72;            /* keep the bulb in view when cropping */
+  --fw: max(100cqw, calc(var(--fh) * var(--ar)));
+  position: absolute;
+  top: 0;
+  width: var(--fw);
+  height: calc(var(--fw) / var(--ar));
+  left: calc((100cqw - var(--fw)) * var(--px));
+}
+.lum-frame::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, #000);
 }
 @media (min-width: 1024px) {
-  .lumina-scene {
-    --bx: 72%;
-    --by: 42svh;
+  .lum-frame {
+    --fh: 100cqh;
+    top: calc((100cqh - var(--fw) / var(--ar)) / 2);
   }
+  .lum-frame::after { display: none; }
 }
-.lumina-pool {
-  background:
-    radial-gradient(circle at var(--bx) var(--by), rgba(255, 196, 120, 0.30) 0%, rgba(255, 160, 70, 0.13) 16%, rgba(120, 62, 22, 0.06) 36%, transparent 58%);
-  animation: lumina-flicker 7s infinite;
-}
-.lumina-pendant {
-  left: var(--bx);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transform-origin: top center;
-  transform: translateX(-50%);
-  animation: lumina-sway 9s ease-in-out infinite alternate;
-}
-.lumina-cord {
-  width: 1.5px;
-  height: calc(var(--by) - 86px);
-  background: linear-gradient(to bottom, #000, #3b2b1a);
-}
-.lumina-bulb {
-  width: 84px;
-  height: auto;
+.lum-photo {
+  width: 100%;
+  height: 100%;
   display: block;
-  filter: drop-shadow(0 0 14px rgba(255, 196, 120, 0.85)) drop-shadow(0 0 48px rgba(255, 160, 60, 0.5));
-  animation: lumina-flicker 7s infinite;
+  animation: lum-dim 7s infinite;
 }
-.lumina-halo {
+.lum-glow {
   position: absolute;
-  left: 50%;
-  top: 86px;
-  width: 420px;
-  height: 420px;
+  left: 70.5%;
+  top: 60%;
+  width: 30%;
+  aspect-ratio: 1;
   transform: translate(-50%, -50%);
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(255, 205, 140, 0.35) 0%, rgba(255, 160, 70, 0.12) 35%, transparent 70%);
-  filter: blur(8px);
+  background: radial-gradient(circle, rgba(255, 196, 120, 0.5) 0%, rgba(255, 150, 60, 0.16) 40%, transparent 70%);
+  mix-blend-mode: screen;
+  pointer-events: none;
   animation: lumina-flicker 7s infinite;
-}
-.lumina-dust {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  border-radius: 9999px;
-  background: rgba(255, 224, 178, 0.75);
-  opacity: 0;
-  animation: lumina-drift linear infinite;
-}
-.lumina-vignette {
-  background: radial-gradient(ellipse at var(--bx) var(--by), transparent 28%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.9) 100%);
-}
-@keyframes lumina-sway {
-  from { transform: translateX(-50%) rotate(-1.4deg); }
-  to { transform: translateX(-50%) rotate(1.4deg); }
 }
 @keyframes lumina-flicker {
   0%, 40%, 44%, 68%, 73%, 100% { opacity: 1; }
-  41% { opacity: 0.84; }
-  42% { opacity: 0.97; }
-  43% { opacity: 0.9; }
-  70% { opacity: 0.93; }
+  41% { opacity: 0.55; }
+  42% { opacity: 0.95; }
+  43% { opacity: 0.7; }
+  70% { opacity: 0.8; }
 }
-@keyframes lumina-drift {
-  0% { transform: translate(0, 0); opacity: 0; }
-  20% { opacity: 0.85; }
-  80% { opacity: 0.5; }
-  100% { transform: translate(28px, -90px); opacity: 0; }
+@keyframes lum-dim {
+  0%, 40%, 44%, 68%, 73%, 100% { filter: brightness(1); }
+  41% { filter: brightness(0.86); }
+  42% { filter: brightness(0.98); }
+  43% { filter: brightness(0.9); }
+  70% { filter: brightness(0.94); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lumina-pool, .lumina-pendant, .lumina-bulb, .lumina-halo, .lumina-dust { animation: none; }
-  .lumina-dust { opacity: 0.4; }
+  .lum-photo, .lum-glow { animation: none; }
 }
